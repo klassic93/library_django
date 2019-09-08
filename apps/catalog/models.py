@@ -93,3 +93,6 @@ class Language(models.Model):
     This model representing language of instance`s book
     """
     name = models.CharField(max_length=50, help_text="Enter original lang")
+
+    def __str__(self):
+        return self.name
