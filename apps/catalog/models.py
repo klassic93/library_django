@@ -31,6 +31,7 @@ class Book(models.Model):
     # linked fields
     genre = models.ManyToManyField(Genre, help_text='Select genre')
     author = models.ForeignKey('Author', on_delete=models.SET_NULL, null=True)
+    language = models.ForeignKey('Language', on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         """
@@ -84,4 +85,11 @@ class Author(models.Model):
         return reverse('author-detail', args=[str(self.id)])
 
     def __str__(self):
-        return '%s %s' % (self.first_name, self.last_name)
+        return '{0} {1}'.format(self.first_name, self.last_name)
+
+
+class Language(models.Model):
+    """
+    This model representing language of instance`s book
+    """
+    name = models.CharField(max_length=50, help_text="Enter original lang")
