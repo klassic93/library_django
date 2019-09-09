@@ -39,6 +39,24 @@ class Book(models.Model):
         """
         return self.title
 
+    # Methods for displaying fields to admin panel
+    def display_genre(self):
+        """
+        Genre has m2m link, => one book has many genres
+        therefor we have to all genres and make up genres list
+        """
+        return ' | '.join([gr.name for gr in self.genre.all()])
+
+    def display_author(self):
+        """
+        return only last name of book (for admin panel)
+        """
+        return self.author.last_name
+
+    # Titles to admin panel to displaying fields
+    display_genre.short_description = 'Genre of book'
+    display_author.short_description = 'Author of book'
+
     def get_absolute_url(self):
         """
         returns the url to access to particular book instance
