@@ -28,6 +28,3 @@ urlpatterns = [
 urlpatterns += [
     path('catalog/', include('apps.catalog.urls'))
 ]
-
-# add static urls for development only
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

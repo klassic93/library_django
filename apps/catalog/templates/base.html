@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}<title>Title</title>{% endblock %}
+
+    <!-- Boot strap styles -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Own css -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/catalog.css'%}">
+</head>
+<body>
+    <div class="present present-center">
+        <header class="header">
+            <nav class="header__nav">
+                {% block header_nav %}
+                    <ul class="nav">
+                        <li>
+                            <a href="{% url 'index' %}" class="header__nav_item nav_item">Home</a>
+                        </li>
+                        <li>
+                            <a href="" class="header__nav_item nav_item">All books</a>
+                        </li>
+                        <li>
+                            <a href="" class="header__nav_item nav_item">All authors</a>
+                        </li>
+                    </ul>
+                {% endblock %}
+            </nav>
+        </header>
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</body>
+</html>

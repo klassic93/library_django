@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>Catalog</title>
+{% endblock %}
+
+{% block content %}
+    <h1>This is Home page our catalog.</h1>
+
+    <p>Here you can get some info about our library</p>
+    <p>The catalog can get the following info:</p>
+    <ul>
+        <li><strong>Books in our catalog:</strong> {{ count_books }}</li>
+        <li><strong>Copies that can be issued:</strong> {{ count_bookinstances }}</li>
+        <li>
+            <strong>These books you can get right now:</strong>
+            <ul>
+                {% for book in available_books %}
+                    <li>{{ book }}</li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li><strong>Authors of books:</strong> {{ count_authors }}</li>
+    </ul>
+
+{% endblock %}

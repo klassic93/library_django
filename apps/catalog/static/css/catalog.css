@@ -1,0 +1,51 @@
+body {
+    background: url("../img/books_bg.jpg") no-repeat;
+    background-size: cover;
+}
+
+a, .nav_item {
+    color: antiquewhite;
+    display: block;
+}
+
+.header {
+    width: 100%;
+    align-self: flex-start;
+}
+
+.header__nav {
+    background-color: rgba(0,0,0,0.5);
+}
+
+.header__nav_item {
+    padding: 30px 17px;
+    transition: background-color 1s, color .7s;
+}
+
+.present {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.present-center {
+    justify-content: center;
+}
+
+.content {
+    color: #fff;
+}
+
+.nav li:first-child {
+    padding-left: 17px;
+}
+
+.header__nav_item:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+
+a:hover {
+    text-decoration: none;
+    color: burlywood;
+}
