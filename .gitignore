@@ -1,3 +1,7 @@
+.idea
+# migrations for development process
+**/migrations/[0-9]*.py
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
