@@ -11,7 +11,8 @@ def index(request):
         'count_books': Book.objects.all().count(),
         'count_authors': Author.objects.all().count(),
         'count_bookinstances': BookInstance.objects.count(),
-        'available_books': Book.objects.filter(bookinstance__status='a')
+        'available_books': Book.objects.filter(bookinstance__status='a'),
+        'genres': Book.objects.filter(author__last_name__icontains='толстой').count()
     }
 
     return render(
