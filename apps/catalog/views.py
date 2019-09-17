@@ -16,19 +16,21 @@ def index(request):
         'genres': Book.objects.filter(author__last_name__icontains='толстой').count()
     }
 
-    return render(
-        request,
-        'catalog/index.html',
-        context=req_context
-    )
+    return render(request, 'catalog/index.html', context=req_context)
 
 
 class BookListView(generic.ListView):
     model = Book
     queryset = Book.objects.filter(language__name='English')
     template_name = 'catalog/books/index.html'
+    paginate_by = 5
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(BookListView, self).get_context_data(**kwargs)
         context['another_data'] = 'These all English book in our library.'
         return context
+
+
+class BookDetailView(generic.DetailView):
+    model = Book
+    template_name = 'catalog/books/instance.html'

@@ -23,7 +23,7 @@ class Book(models.Model):
     This model representing book (as abstract)
     more info you can get from another models
     """
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=200, unique=True)
     summary = models.TextField(max_length=1000, help_text='You can enter a bref '
                                                           'description you book')
     isbn = models.CharField('ISBN', max_length=13, help_text='13 chars for ISBN')

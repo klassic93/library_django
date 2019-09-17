@@ -17,4 +17,18 @@
     {% else %}
         <p><strong>Sorry, we don`t have such books :( </strong>S</p>
     {% endif %}
+
+    {% block pagination %}
+        {% if is_paginated %}
+            <div class="pagin">
+                {% if page_obj.has_previous %}
+                    <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">Previous page {{ page_obj.previous_page_number }}</a>
+                {% endif %}
+                <strong>{{ page_obj.number }}</strong>
+                {% if page_obj.has_next %}
+                    <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">Next page {{ page_obj.next_page_number }}</a>
+                {% endif %}
+            </div>
+        {% endif %}
+    {% endblock %}
 {% endblock %}

@@ -13,15 +13,18 @@
         <li><strong>Books in our catalog:</strong> {{ count_books }}</li>
         <li><strong>Copies that can be issued:</strong> {{ count_bookinstances }}</li>
         <li>
-            <strong>These books you can get right now:</strong>
-            <ul>
-                {% for book in available_books %}
-                    <li>{{ book }}</li>
-                {% endfor %}
-            </ul>
+            {% if available_books %}
+                <strong>These books you can get right now:</strong>
+                <ul>
+                    {% for book in available_books %}
+                        <li><a href="{{ book.get_absolute_url }}">{{ book.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <strong>Sorry. Now we don`t have a single book..</strong>
+            {% endif %}
         </li>
         <li><strong>Authors of books:</strong> {{ count_authors }}</li>
-        <li><strong>These quantity of books where genre contains ROM</strong> {{ genres }}</li>
     </ul>
 
 {% endblock %}
