@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>{{ book.title }}</title>
+{% endblock %}
+
+{% block content %}
+    <h1>{{ book.title }}</h1>
+    <h3>{{ book.author }} is the author of this book.</h3>
+    <p>Genres:
+        {% for genre in book.genre.all %}
+            {{ genre }}
+        {% endfor %}
+    </p>
+    {% if book.bookinstance_set %}
+        <p>Instances:</p>
+            <ul>
+                {% for instance in book.bookinstance_set.all %}
+                    <li>Book imprint: {{ instance.imprint }}
+                        Status: {{ instance.get_status_display }}
+                    </li>
+                {% endfor %}
+            </ul>
+    {% else %}
+        <p>Now we don`t have a single instance of this book :(</p>
+    {% endif %}
+
+{% endblock %}
